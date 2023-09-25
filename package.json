@@ -19,6 +19,8 @@
     "tasks": "gulp --tasks"
   },
   "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "fs-extra": "^11.1.1",
     "gulp": "^4.0.2"
   }
 }
