@@ -12,5 +12,13 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hizpro/gulp-boots.git"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development gulp start",
+    "build": "NODE_ENV=production gulp build",
+    "tasks": "gulp --tasks"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
   }
 }
