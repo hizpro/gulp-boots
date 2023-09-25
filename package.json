@@ -1,0 +1,16 @@
+{
+  "name": "gulp-boots",
+  "version": "1.0.0",
+  "description": "A development toolkit that leverages Gulp.js to streamline Bootstrap-based web development",
+  "keywords": [
+    "gulp",
+    "bootstrap customize",
+    "web-develop"
+  ],
+  "license": "MIT",
+  "author": "Hazel <hz1080900@outlook.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hizpro/gulp-boots.git"
+  }
+}
