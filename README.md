@@ -3,3 +3,37 @@
 ![License](https://img.shields.io/github/license/hizpro/gulp-boots)
 
 A development toolkit that leverages Gulp.js to streamline Bootstrap-based web development. It offers automation, customization, and productivity enhancements to help you build web applications faster and more efficiently.
+
+## Usage
+
+**Start development**
+
+Development mode: execute the build task and start the local server, automatically refresh the page when the file is modified.
+
+```shell
+npm start
+```
+
+**Run the build**
+
+Build mode: only the build task is executed, but the compression option is enabled during the build process.
+
+```shell
+npm run build
+```
+
+## Acknowledgments
+
+Thanks to the open-source community and the following outstanding projects for their support of this project:
+
+- **[Gulp](https://gulpjs.com/)**
+
+  A toolkit to automate & enhance your workflow.
+
+- **[Gulp-Art-Tpl](https://www.npmjs.com/package/gulp-art-tpl)**
+
+  A gulp plugin for art-template.
+
+- **[Art-Template](https://aui.github.io/art-template)**
+
+  High performance JavaScript templating engine.
