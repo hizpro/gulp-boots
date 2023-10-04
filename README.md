@@ -37,3 +37,7 @@ Thanks to the open-source community and the following outstanding projects for t
 - **[Art-Template](https://aui.github.io/art-template)**
 
   High performance JavaScript templating engine.
+
+- **[Bootstrap](https://getbootstrap.com)**
+
+  Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins.
