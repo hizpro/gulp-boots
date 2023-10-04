@@ -30,14 +30,18 @@ Thanks to the open-source community and the following outstanding projects for t
 
   A toolkit to automate & enhance your workflow.
 
-- **[Gulp-Art-Tpl](https://www.npmjs.com/package/gulp-art-tpl)**
+- **[Gulp-Art-Tpl](https://www.npmjs.com/package/gulp-art-tpl/)**
 
   A gulp plugin for art-template.
 
-- **[Art-Template](https://aui.github.io/art-template)**
+- **[Art-Template](https://aui.github.io/art-template/)**
 
   High performance JavaScript templating engine.
 
-- **[Bootstrap](https://getbootstrap.com)**
+- **[Bootstrap](https://getbootstrap.com/)**
 
   Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins.
+
+- **[Bootstrap-Icons](https://icons.getbootstrap.com/)**
+
+  Free, high quality, open source icon library with over 2,000 icons. Include them anyway you like—SVGs, SVG sprite, or web fonts. Use them with or without [Bootstrap](https://getbootstrap.com/) in any project.

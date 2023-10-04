@@ -1,7 +1,11 @@
 const fs = require("fs-extra");
 
-function clean(cb) {
+function cleanDist(cb) {
   fs.remove("./dist", cb);
 }
 
-module.exports = clean;
+function cleanCache(cb) {
+  fs.remove("./cache", cb);
+}
+
+module.exports = { cleanDist, cleanCache };
