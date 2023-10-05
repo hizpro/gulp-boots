@@ -1,7 +1,10 @@
-// Create your own map
-$custom-colors: (
-  "custom-color": $custom-color,
+$theme-colors: (
+  "light": #d4e2ee,
+  "dark": #98135b,
+  "primary": #c32735,
+  "secondary": #06538a,
+  "info": #119b31,
+  "success": #589b05,
+  "warning": #ffbc5d,
+  "danger": #ed0264,
 );
-
-// Merge the maps
-$theme-colors: map-merge($theme-colors, $custom-colors);
