@@ -8,9 +8,9 @@ const options = {
 };
 
 /**
- * Enable compression in non-debug mode
+ * Enable compression in debug-mode(development env)
  */
-if (!options.debug) {
+if (options.debug) {
   options.minimize = true;
   options.htmlMinifierOptions = {
     collapseWhitespace: true,
