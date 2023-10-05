@@ -50,11 +50,13 @@ function styleMain() {
   return src(["./cache/scss.css", "./cache/vendor.css", "./cache/css.css"], {
     allowEmpty: true,
   })
-    .pipe(isDevelopment ? sourcemaps.init() : noop())
+    .pipe(sourcemaps.init())
     .pipe(concat("main.css"))
-    .pipe(cleanCSS())
+    .pipe(cleanCSS({ format: "beautify" }))
+    .pipe(dest("./dist"))
+    .pipe(cleanCSS({ level: { 1: { specialComments: false } } }))
     .pipe(rename({ suffix: ".min" }))
-    .pipe(isDevelopment ? sourcemaps.write(".") : noop())
+    .pipe(sourcemaps.write("."))
     .pipe(dest("./dist"))
     .pipe(isDevelopment ? browserSync.stream() : noop());
 }
