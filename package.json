@@ -32,6 +32,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-sass-partials-imported": "^1.0.7",
     "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0",
     "node-sass": "^9.0.0"
   },
   "dependencies": {

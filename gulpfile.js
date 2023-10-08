@@ -19,13 +19,19 @@ const {
   styleCss,
   styleMain,
 } = require("./modules/tasks/style");
+const {
+  scriptVendor,
+  scriptJs,
+  scriptMain,
+} = require("./modules/tasks/script");
 
 const clean = parallel(cleanDist, cleanCache);
 const static = parallel(fonts, icons, images, favicon, css, js);
 const style = series(parallel(styleScss, styleVendor, styleCss), styleMain);
+const script = series(parallel(scriptVendor, scriptJs), scriptMain);
 
 // Define build task
-const build = series(clean, parallel(html, static, style));
+const build = series(clean, parallel(html, static, style, script));
 
 // Define start task (default task)
 const start = series(build, serve, watching);
