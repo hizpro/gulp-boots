@@ -10,8 +10,8 @@ const concat = require("gulp-concat");
 const sassPartialsImported = require("gulp-sass-partials-imported");
 
 const noop = require("../noop");
-const browserSync = require("../browserSync");
 const vendor = require("../vendor");
+const browserSync = require("../browserSync");
 
 const isDevelopment = process.env.NODE_ENV === "development";
 

@@ -1,5 +1,6 @@
 const { src, dest } = require("gulp");
 const template = require("gulp-art-tpl");
+
 const data = require("../data");
 
 const options = {

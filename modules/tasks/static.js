@@ -1,5 +1,14 @@
 const { src, dest } = require("gulp");
+
 const vendor = require("../vendor");
+
+function manifest() {
+  return src([
+    "./static/site.webmanifest",
+    "./static/favicon.ico",
+    "./static/*.png",
+  ]).pipe(dest("./dist"));
+}
 
 function fonts() {
   return src([...vendor.fonts, "./static/fonsts/**/*"], {
@@ -19,23 +28,16 @@ function images() {
   );
 }
 
-function favicon() {
-  return src(
-    ["./static/*.png", "./static/favicon.ico", "./static/site.webmanifest"],
-    { allowEmpty: true }
-  ).pipe(dest("./dist"));
-}
-
-function css() {
+function staticCss() {
   return src(["./static/css/**/*.css"], { allowEmpty: true }).pipe(
-    dest("./dist")
+    dest("./dist/css")
   );
 }
 
-function js() {
+function staticJs() {
   return src(["./static/js/**/*.js"], { allowEmpty: true }).pipe(
-    dest("./dist")
+    dest("./dist/js")
   );
 }
 
-module.exports = { fonts, icons, images, favicon, css, js };
+module.exports = { manifest, fonts, icons, images, staticCss, staticJs };

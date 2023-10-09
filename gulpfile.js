@@ -6,12 +6,12 @@ const serve = require("./modules/tasks/serve");
 const { cleanDist, cleanCache } = require("./modules/tasks/clean");
 const html = require("./modules/tasks/html");
 const {
+  manifest,
   fonts,
   icons,
   images,
-  favicon,
-  css,
-  js,
+  staticCss,
+  staticJs,
 } = require("./modules/tasks/static");
 const {
   styleScss,
@@ -25,8 +25,9 @@ const {
   scriptMain,
 } = require("./modules/tasks/script");
 
+// Arrange tasks
 const clean = parallel(cleanDist, cleanCache);
-const static = parallel(fonts, icons, images, favicon, css, js);
+const static = parallel(manifest, fonts, icons, images, staticCss, staticJs);
 const style = series(parallel(styleScss, styleVendor, styleCss), styleMain);
 const script = series(parallel(scriptVendor, scriptJs), scriptMain);
 
