@@ -9,7 +9,7 @@
 node_modules/
 
 # Build output
-dist/
+public/
 
 # Cache output
 cache/

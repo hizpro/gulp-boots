@@ -4,7 +4,7 @@ function serve(cb) {
   browserSync.init(
     {
       server: {
-        baseDir: "./dist",
+        baseDir: "./public",
       },
     },
     cb

@@ -1,7 +1,7 @@
 const { series, parallel } = require("gulp");
 
 // Import Gulp tasks
-const { cleanDist, cleanCache } = require("./modules/tasks/clean");
+const { cleanPublic, cleanCache } = require("./modules/tasks/clean");
 const {
   manifest,
   fonts,
@@ -21,7 +21,7 @@ const serve = require("./modules/tasks/serve");
 const watching = require("./modules/tasks/watching");
 
 // Arrange tasks
-const clean = parallel(cleanDist, cleanCache);
+const clean = parallel(cleanPublic, cleanCache);
 const static = parallel(manifest, fonts, icons, images, staticCss, staticJs);
 const style = series(parallel(styleVendor, styleLocal), styleMain);
 const script = series(parallel(scriptVendor, scriptLocal), scriptMain);

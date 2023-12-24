@@ -15,10 +15,12 @@ const browserSync = require("../browserSync");
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
-function styleVendor() {
-  return src(vendor.css, { allowEmpty: true })
-    .pipe(concat("vendor.css"))
-    .pipe(dest("./cache"));
+function styleVendor(cb) {
+  if (!vendor.css || vendor.css.length === 0) {
+    return cb();
+  }
+
+  return src(vendor.css).pipe(concat("vendor.css")).pipe(dest("./cache"));
 }
 
 function styleLocal() {
@@ -41,11 +43,11 @@ function styleMain() {
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(concat("main.css"))
     .pipe(cleanCSS({ format: "beautify" }))
-    .pipe(dest("./dist"))
+    .pipe(dest("./public/css"))
     .pipe(cleanCSS({ level: { 1: { specialComments: false } } }))
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write("."))
-    .pipe(dest("./dist"))
+    .pipe(dest("./public/css"))
     .pipe(isDevelopment ? browserSync.stream() : noop());
 }
 

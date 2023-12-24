@@ -1,9 +1,4 @@
 {
   "js": ["./node_modules/bootstrap/dist/js/bootstrap.bundle.js"],
-  "css": ["./node_modules/bootstrap-icons/font/bootstrap-icons.css"],
-  "fonts": ["./node_modules/bootstrap-icons/font/fonts/bootstrap-icons.*"],
-  "icons": [
-    "./node_modules/bootstrap-icons/bootstrap-icons.svg",
-    "./node_modules/bootstrap-icons/icons/*.svg"
-  ]
+  "fonts": ["./node_modules/bootstrap-icons/font/fonts/bootstrap-icons.*"]
 }

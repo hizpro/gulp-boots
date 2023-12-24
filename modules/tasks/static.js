@@ -7,36 +7,42 @@ function manifest() {
     "./static/site.webmanifest",
     "./static/favicon.ico",
     "./static/*.png",
-  ]).pipe(dest("./dist"));
+  ]).pipe(dest("./public"));
 }
 
 function fonts() {
+  if (!vendor.fonts) {
+    vendor.fonts = [];
+  }
   return src([...vendor.fonts, "./static/fonsts/**/*"], {
     allowEmpty: true,
-  }).pipe(dest("./dist/fonts"));
+  }).pipe(dest("./public/fonts"));
 }
 
 function icons() {
+  if (!vendor.icons) {
+    vendor.icons = [];
+  }
   return src([...vendor.icons, "./static/icons/**/*"], {
     allowEmpty: true,
-  }).pipe(dest("./dist/icons"));
+  }).pipe(dest("./public/icons"));
 }
 
 function images() {
   return src(["./static/images/**/*"], { allowEmpty: true }).pipe(
-    dest("./dist/images")
+    dest("./public/images")
   );
 }
 
 function staticCss() {
   return src(["./static/css/**/*.css"], { allowEmpty: true }).pipe(
-    dest("./dist/css")
+    dest("./public/css")
   );
 }
 
 function staticJs() {
   return src(["./static/js/**/*.js"], { allowEmpty: true }).pipe(
-    dest("./dist/js")
+    dest("./public/js")
   );
 }
 

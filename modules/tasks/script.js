@@ -9,10 +9,12 @@ const vendor = require("../vendor");
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
-function scriptVendor() {
-  return src(vendor.js, { allowEmpty: true })
-    .pipe(concat("vendor.js"))
-    .pipe(dest("./cache"));
+function scriptVendor(cb) {
+  if (!vendor.js || vendor.js.length === 0) {
+    return cb();
+  }
+
+  return src(vendor.js).pipe(concat("vendor.js")).pipe(dest("./cache"));
 }
 
 function scriptLocal() {
@@ -28,11 +30,11 @@ function scriptMain() {
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(concat("main.js"))
     .pipe(terser({ format: { beautify: true } }))
-    .pipe(dest("./dist"))
+    .pipe(dest("./public/js"))
     .pipe(terser({ format: { comments: false } }))
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write("."))
-    .pipe(dest("./dist"));
+    .pipe(dest("./public/js"));
 }
 
 module.exports = { scriptVendor, scriptLocal, scriptMain };
