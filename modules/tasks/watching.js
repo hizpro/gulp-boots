@@ -2,7 +2,7 @@ const { watch } = require("gulp");
 
 const html = require("./html");
 const { scriptJs, scriptMain } = require("./script");
-const { styleScss, styleCss, styleMain } = require("./style");
+const { styleScss, styleMain } = require("./style");
 const { fonts, icons, images, staticJs, staticCss } = require("./static");
 
 const browserSync = require("../browserSync");
@@ -30,8 +30,7 @@ function watching() {
   watch(["./src/script/**/*.js"], scriptJs);
   watch(["./cache/*.js"], scriptMain);
 
-  watch(["./src/style/scss/**/*.scss"], styleScss);
-  watch(["./src/style/css/**/*.css"], styleCss);
+  watch(["./src/style/**/*.scss"], styleScss);
   watch(["./cache/*.css"], styleMain);
 }
 

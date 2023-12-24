@@ -11,25 +11,23 @@ const isDevelopment = process.env.NODE_ENV === "development";
 
 function scriptVendor() {
   return src(vendor.js, { allowEmpty: true })
-    .pipe(isDevelopment ? sourcemaps.init() : noop())
     .pipe(concat("vendor.js"))
-    .pipe(isDevelopment ? sourcemaps.write(".") : noop())
     .pipe(dest("./cache"));
 }
 
-function scriptJs() {
+function scriptLocal() {
   return src(["./src/script/**/*.js"], { allowEmpty: true })
     .pipe(isDevelopment ? sourcemaps.init() : noop())
-    .pipe(concat("script.js"))
+    .pipe(concat("local.js"))
     .pipe(isDevelopment ? sourcemaps.write(".") : noop())
     .pipe(dest("./cache"));
 }
 
 function scriptMain() {
-  return src(["./cache/vendor.js", "./cache/script.js"], { allowEmpty: true })
-    .pipe(sourcemaps.init())
+  return src(["./cache/vendor.js", "./cache/local.js"], { allowEmpty: true })
+    .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(concat("main.js"))
-    .pipe(terser())
+    .pipe(terser({ format: { beautify: true } }))
     .pipe(dest("./dist"))
     .pipe(terser({ format: { comments: false } }))
     .pipe(rename({ suffix: ".min" }))
@@ -37,4 +35,4 @@ function scriptMain() {
     .pipe(dest("./dist"));
 }
 
-module.exports = { scriptVendor, scriptJs, scriptMain };
+module.exports = { scriptVendor, scriptLocal, scriptMain };

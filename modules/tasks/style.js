@@ -15,42 +15,30 @@ const browserSync = require("../browserSync");
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
-function styleScss() {
-  const scssDir = "./src/style/scss";
+function styleVendor() {
+  return src(vendor.css, { allowEmpty: true })
+    .pipe(concat("vendor.css"))
+    .pipe(dest("./cache"));
+}
+
+function styleLocal() {
+  const scssDir = "./src/style";
   const includePaths = [scssDir];
-  return src(["./src/style/scss/**/*.scss"])
-    .pipe(cached("scss"))
+  return src(["./src/style/**/*.scss"])
+    .pipe(cached("style"))
     .pipe(sassPartialsImported(scssDir, includePaths))
     .pipe(isDevelopment ? sourcemaps.init() : noop())
     .pipe(sass({ includePaths: scssDir }).on("error", sass.logError))
     .pipe(autoprefixer())
-    .pipe(remember("scss"))
-    .pipe(concat("scss.css"))
-    .pipe(isDevelopment ? sourcemaps.write(".") : noop())
-    .pipe(dest("./cache"));
-}
-
-function styleVendor() {
-  return src(vendor.css, { allowEmpty: true })
-    .pipe(isDevelopment ? sourcemaps.init() : noop())
-    .pipe(concat("vendor.css"))
-    .pipe(isDevelopment ? sourcemaps.write(".") : noop())
-    .pipe(dest("./cache"));
-}
-
-function styleCss() {
-  return src(["./src/style/css/**/*.css"], { allowEmpty: true })
-    .pipe(isDevelopment ? sourcemaps.init() : noop())
-    .pipe(concat("css.css"))
+    .pipe(remember("style"))
+    .pipe(concat("local.css"))
     .pipe(isDevelopment ? sourcemaps.write(".") : noop())
     .pipe(dest("./cache"));
 }
 
 function styleMain() {
-  return src(["./cache/scss.css", "./cache/vendor.css", "./cache/css.css"], {
-    allowEmpty: true,
-  })
-    .pipe(sourcemaps.init())
+  return src(["./cache/vendor.css", "./cache/local.css"], { allowEmpty: true })
+    .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(concat("main.css"))
     .pipe(cleanCSS({ format: "beautify" }))
     .pipe(dest("./dist"))
@@ -61,4 +49,4 @@ function styleMain() {
     .pipe(isDevelopment ? browserSync.stream() : noop());
 }
 
-module.exports = { styleScss, styleVendor, styleCss, styleMain };
+module.exports = { styleVendor, styleLocal, styleMain };
