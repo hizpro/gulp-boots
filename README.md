@@ -30,10 +30,6 @@ Thanks to the open-source community and the following outstanding projects for t
 
   A toolkit to automate & enhance your workflow.
 
-- **[Gulp-Art-Tpl](https://www.npmjs.com/package/gulp-art-tpl/)**
-
-  A gulp plugin for art-template.
-
 - **[Art-Template](https://aui.github.io/art-template/)**
 
   High performance JavaScript templating engine.
