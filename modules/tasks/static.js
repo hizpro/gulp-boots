@@ -14,7 +14,7 @@ function fonts() {
   if (!vendor.fonts) {
     vendor.fonts = [];
   }
-  return src([...vendor.fonts, "./static/fonsts/**/*"], {
+  return src([...vendor.fonts, "./static/fonts/**/*"], {
     allowEmpty: true,
   }).pipe(dest("./public/fonts"));
 }

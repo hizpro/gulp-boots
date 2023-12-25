@@ -11,7 +11,7 @@ function watching() {
   browserSync.watch("./public/**/*.html").on("change", browserSync.reload);
   browserSync.watch("./public/js/**/*.js").on("change", browserSync.reload);
 
-  watch(["./static/fonsts/**/*"], fonts);
+  watch(["./static/fonts/**/*"], fonts);
   watch(["./static/icons/**/*"], icons);
   watch(["./static/images/**/*"], images);
   watch(["./static/js/**/*.js"], staticJs);
